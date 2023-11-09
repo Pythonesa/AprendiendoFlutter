@@ -1,3 +1,3 @@
-# widgets_app
+# Widgets App
 
-A new Flutter project.
+A Flutter project to learn about widgets.
