@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:widgets_app/config/menu/menu_items.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -21,13 +22,12 @@ class _HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: appMenuItems.length,
-      itemBuilder: (context, index) {
-        final menuItem = appMenuItems[index];
+        itemCount: appMenuItems.length,
+        itemBuilder: (context, index) {
+          final menuItem = appMenuItems[index];
 
-        return _CustomListTile(menuItem: menuItem);
-      }
-    );
+          return _CustomListTile(menuItem: menuItem);
+        });
   }
 }
 
@@ -43,13 +43,12 @@ class _CustomListTile extends StatelessWidget {
     final colors = Theme.of(context).colorScheme;
 
     return ListTile(
-      leading: Icon(menuItem.icon, color: colors.primary),
-      trailing: Icon(Icons.chevron_right_rounded, color: colors.primary),
-      title: Text(menuItem.title),
-      subtitle: Text(menuItem.subtitle),
-      onTap: () {
-        // TODO: Navigate to route
-      }
-    );
+        leading: Icon(menuItem.icon, color: colors.primary),
+        trailing: Icon(Icons.chevron_right_rounded, color: colors.primary),
+        title: Text(menuItem.title),
+        subtitle: Text(menuItem.subtitle),
+        onTap: () {
+          context.push(menuItem.link);
+        });
   }
 }
